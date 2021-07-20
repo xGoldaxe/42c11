@@ -6,7 +6,7 @@
 /*   By: pleveque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 16:08:19 by pleveque          #+#    #+#             */
-/*   Updated: 2021/07/19 16:20:22 by pleveque         ###   ########.fr       */
+/*   Updated: 2021/07/20 17:01:41 by pleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,5 @@ void	ft_putnbr_base(int nbr, char *base)
 	else
 		write(1, "-", 1);
 	recu_putnbr_base(nbr, base);
+	write(1, "\n", 1);
 }
