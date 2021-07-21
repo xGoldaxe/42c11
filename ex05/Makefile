@@ -6,31 +6,38 @@
 #    By: pleveque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 16:09:48 by pleveque          #+#    #+#              #
-#    Updated: 2021/07/20 17:19:27 by pleveque         ###   ########.fr        #
+#    Updated: 2021/07/21 15:07:51 by pleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = do-op
+NAME	= do-op
 
-CC = gcc
+CC		= gcc
 
-CFLAGS = -Wall -Wextra -Werror
+OBJS	= $(SRCS:.c=.o)
 
-RM = rm -f
+CFLAGS	= -Wall -Wextra -Werror
 
-SRCS = ft_atoi.c\
-	  ft_putstr.c\
-	  main.c\
-	  ft_putnbr_base.c\
-	  get_operator.c\
-	  operations.c
+RM		= rm -f
 
-all: $(NAME)
+SRCS 	= ft_atoi.c\
+	  	ft_putstr.c\
+	  	main.c\
+	  	ft_putnbr_base.c\
+	  	get_operator.c\
+	  	operations.c
 
-$(NAME):
-	$(CC) $(CFLAGS) -o $(NAME) $(SRCS)
+.c.o:		$(GCC) $(CFLAGS) -c $< -o ${<:.c=.o}
+
+all:		$(NAME)
+
+$(NAME):	$(OBJS)
+			$(CC) $(CFLAGS) -o $(NAME) $(SRCS)
 
 clean:
-	$(RM) $(NAME)
+			$(RM) $(OBJS)
 
-re: clean all
+fclean:		clean
+			$(RM) $(NAME)
+
+re:			clean all
